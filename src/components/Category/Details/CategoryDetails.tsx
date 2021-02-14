@@ -1,24 +1,12 @@
 import React from "react";
-import { gql, useLazyQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import { addToFavourites } from '../../../actions/jokes';
 import Loader from '../../Loader/Loader';
-
-const RANDOM_JOKE = gql`
-  query getRandomJokeByCategory($category: String!) {
-    getRandomJokeByCategory(category: $category) {
-      id
-      value
-      created_at
-      updated_at
-      icon_url
-      url
-    }
-  }
-`;
+import { GET_RANDOM_JOKE } from '../../../constants/Queries';
 
 export default function CategoryDetails(props: any) {
     const [loadJoke, { called, loading, error, data }] = useLazyQuery(
-        RANDOM_JOKE,
+        GET_RANDOM_JOKE,
         {
             variables: { category: props.activeCategory }
         }

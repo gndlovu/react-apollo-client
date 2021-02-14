@@ -1,14 +1,11 @@
 import React from "react";
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import CategoryItem from '../Item/CategoryItem';
 import Loader from '../../Loader/Loader';
-
-const JOKE_CATEGORIES = gql`
-  query { getCategories }
-`;
+import { GET_JOKE_CATEGORIES } from '../../../constants/Queries';
 
 export default function CategoryList(props: any) {
-    const { loading, error, data } = useQuery(JOKE_CATEGORIES);
+    const { loading, error, data } = useQuery(GET_JOKE_CATEGORIES);
 
     if (loading) return <Loader />;
     if (error) return <p>Error :(</p>;
