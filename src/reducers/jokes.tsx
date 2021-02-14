@@ -20,6 +20,9 @@ function favouriteJokes(state = List(), action: any) {
                 id: action.joke.id,
                 value: action.joke.value
             }));
+        case types.REMOVE_FROM_FAVOURITES:
+            console.info('%cRemoving joke from favourites: ' + action.id, 'color:red; font-weight:bold;');
+            return state.filter((joke: any) => joke.get('id') !== action.id);
         default:
             return state;
     }

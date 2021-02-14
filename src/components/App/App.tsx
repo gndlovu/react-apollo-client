@@ -10,7 +10,7 @@ const client = new ApolloClient({
 function App(props: any) {
     return (
         <ApolloProvider client={client}>
-            <div>
+            <div className="container">
                 <HomeComponent dispatch={props.dispatch} activeCategory={props.activeCategory} favouriteJokes={props.favouriteJokes} />
             </div>
         </ApolloProvider>

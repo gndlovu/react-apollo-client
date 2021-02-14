@@ -1,19 +1,27 @@
 import React, { PureComponent } from 'react'
+import { removeFromFavourites } from '../../actions/jokes';
 
 export class FavouriteJokeList extends PureComponent<{ favouriteJokes: any; dispatch: any }> {
     render() {
         return (
-            <div>
+            <>
                 {!!this.props.favouriteJokes.size && (
                     <ul className="list-group">
+                        <li className="list-group-item bg-purple text-white">
+                            My Favorite Jokes
+                        </li>
                         {this.props.favouriteJokes.map((joke: any) => {
                             return (
-                                <li key={joke.get('id')}>{joke.get('value')}</li>
+                                <li key={joke.get('id')} className="list-group-item d-flex justify-content-between align-items-center">
+                                    <p className="fs-6">{joke.get('value')}</p>
+                                    <span className="badge bg-danger rounded-pill pointer" onClick={() => this.props.dispatch(removeFromFavourites(joke.get('id')))}>X</span>
+                                </li>
                             );
                         })}
                     </ul>
-                )}
-            </div>
+                )
+                }
+            </>
         )
     }
 }

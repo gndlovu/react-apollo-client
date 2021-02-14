@@ -1,3 +1,12 @@
 body {
     font-family: Verdana, Geneva, sans-serif;
+    background-color: #f8f9fa!important;
+}
+
+.bg-purple {
+    background-color: #6f42c1;
+}
+
+.pointer {
+    cursor: pointer;
 }

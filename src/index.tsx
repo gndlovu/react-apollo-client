@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
-import './assets/css/index.css';
-import App from './components/App/App';
 import rootReducer from './reducers';
+import App from './components/App/App';
+import 'bootstrap/dist/css/bootstrap.css';
+import './assets/css/index.css';
 
 const store = createStore(rootReducer);
 
