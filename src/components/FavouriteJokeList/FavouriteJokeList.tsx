@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { removeFromFavourites } from '../../actions/jokes';
+import { removeFromFavourites, clearFavourites } from '../../actions/jokes';
 
 export class FavouriteJokeList extends PureComponent<{ favouriteJokes: any; dispatch: any }> {
     render() {
@@ -9,6 +9,9 @@ export class FavouriteJokeList extends PureComponent<{ favouriteJokes: any; disp
                     <ul className="list-group">
                         <li className="list-group-item bg-purple text-white">
                             My Favorite Jokes
+                            <button className="btn btn-danger btn-sm float-right" onClick={() => this.props.dispatch(clearFavourites())}>
+                                Clear List
+                            </button>
                         </li>
                         {this.props.favouriteJokes.map((joke: any) => {
                             return (
