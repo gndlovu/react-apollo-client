@@ -11,7 +11,7 @@ function App(props: any) {
     return (
         <ApolloProvider client={client}>
             <div>
-                <HomeComponent dispatch={props.dispatch} activeCategory={props.activeCategory} />
+                <HomeComponent dispatch={props.dispatch} activeCategory={props.activeCategory} favouriteJokes={props.favouriteJokes} />
             </div>
         </ApolloProvider>
     );

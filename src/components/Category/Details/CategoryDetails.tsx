@@ -1,5 +1,6 @@
 import React from "react";
 import { gql, useLazyQuery } from '@apollo/client';
+import { addToFavourites } from '../../../actions/jokes';
 
 const RANDOM_JOKE = gql`
   query getRandomJokeByCategory($category: String!) {
@@ -14,7 +15,7 @@ const RANDOM_JOKE = gql`
   }
 `;
 
-export default function CategoryDetails(props: { activeCategory: string }) {
+export default function CategoryDetails(props: any) {
     const [loadJoke, { called, loading, error, data }] = useLazyQuery(
         RANDOM_JOKE,
         {
@@ -36,7 +37,8 @@ export default function CategoryDetails(props: { activeCategory: string }) {
 
     return (
         <div>
-            {data.getRandomJokeByCategory.value}
+            <p>{data.getRandomJokeByCategory.value}</p>
+            <button onClick={() => props.dispatch(addToFavourites(data.getRandomJokeByCategory))}>Add to favourites</button>
         </div>
     );
 }
