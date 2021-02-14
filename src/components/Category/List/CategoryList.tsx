@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery, gql } from '@apollo/client';
 import CategoryItem from '../Item/CategoryItem';
+import Loader from '../../Loader/Loader';
 
 const JOKE_CATEGORIES = gql`
   query { getCategories }
@@ -9,7 +10,7 @@ const JOKE_CATEGORIES = gql`
 export default function CategoryList(props: any) {
     const { loading, error, data } = useQuery(JOKE_CATEGORIES);
 
-    if (loading) return <p>Loading joke categories...</p>;
+    if (loading) return <Loader />;
     if (error) return <p>Error :(</p>;
 
     return (

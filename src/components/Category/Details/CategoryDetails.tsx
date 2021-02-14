@@ -1,6 +1,7 @@
 import React from "react";
 import { gql, useLazyQuery } from '@apollo/client';
 import { addToFavourites } from '../../../actions/jokes';
+import Loader from '../../Loader/Loader';
 
 const RANDOM_JOKE = gql`
   query getRandomJokeByCategory($category: String!) {
@@ -23,7 +24,7 @@ export default function CategoryDetails(props: any) {
         }
     );
 
-    if (called && loading) return <span>Loading random joke...</span>
+    if (called && loading) return <Loader />;
     if (error) return <span>Error :(</span>;
 
     // No category selected yet.
