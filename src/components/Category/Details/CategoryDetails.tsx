@@ -12,8 +12,9 @@ export default function CategoryDetails(props: any) {
         }
     );
 
+    console.log('error', error);
     if (called && loading) return <Loader />;
-    if (error) return <span>Error :(</span>;
+    if (error !== undefined) return <p>An error occurred</p>;
 
     // No category selected yet.
     if (!props.activeCategory) { return <></> }

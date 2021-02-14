@@ -8,7 +8,7 @@ export default function CategoryList(props: any) {
     const { loading, error, data } = useQuery(GET_JOKE_CATEGORIES);
 
     if (loading) return <Loader />;
-    if (error) return <p>Error :(</p>;
+    if (error !== undefined) return <p>An error occurred</p>;
 
     return (
         <div className="list-group">
