@@ -7,11 +7,11 @@ const client = new ApolloClient({
     cache: new InMemoryCache()
 });
 
-function App() {
+function App(props: any) {
     return (
         <ApolloProvider client={client}>
             <div>
-                <HomeComponent />
+                <HomeComponent dispatch={props.dispatch} activeCategory={props.activeCategory} />
             </div>
         </ApolloProvider>
     );

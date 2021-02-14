@@ -7,10 +7,6 @@ const JOKE_CATEGORIES = gql`
 `;
 
 export default function CategoryList(props: any) {
-    const setCategory = (category: string) => {
-        props.categorySelect(category);
-    }
-
     const { loading, error, data } = useQuery(JOKE_CATEGORIES);
 
     if (loading) return <p>Loading...</p>;
@@ -20,7 +16,7 @@ export default function CategoryList(props: any) {
         <ul>
             {
                 data.getCategories.map((category: string) => (
-                    <CategoryItem key={category} category={category} selectCategory={setCategory} />
+                    <CategoryItem key={category} category={category} dispatch={props.dispatch} />
                 ))
             }
         </ul>

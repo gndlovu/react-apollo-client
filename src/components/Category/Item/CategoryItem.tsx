@@ -1,9 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
+import { selectCategory } from '../../../actions/jokes';
 
 export default function CategoryItem(props: any) {
-    const setCategory = (category: any) => {
-        props.selectCategory(category);
-    };
-
-    return <li onClick={() => setCategory(props.category)}>{props.category}</li>
+    return <li onClick={() => props.dispatch(selectCategory(props.category))}>select {props.category}</li>
 }

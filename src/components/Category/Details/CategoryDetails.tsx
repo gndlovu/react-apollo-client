@@ -14,11 +14,11 @@ const RANDOM_JOKE = gql`
   }
 `;
 
-export default function CategoryDetails(props: any) {
+export default function CategoryDetails(props: { activeCategory: string }) {
     const [loadJoke, { called, loading, error, data }] = useLazyQuery(
         RANDOM_JOKE,
         {
-            variables: { category: props.category }
+            variables: { category: props.activeCategory }
         }
     );
 
@@ -26,7 +26,7 @@ export default function CategoryDetails(props: any) {
     if (error) return <p>Error :(</p>;
 
     // No category selected yet.
-    if (!props.category) { return <></> }
+    if (!props.activeCategory) { return <></> }
 
     if (!called) {
         loadJoke();
