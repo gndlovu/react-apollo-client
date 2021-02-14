@@ -13,9 +13,9 @@ export default function Loader() {
             className="three-o-loading text-center"
             style={styles}
         >
-            <span></span>
-            <span></span>
-            <span></span>
+            <span />
+            <span />
+            <span />
         </div>
     )
 }
